@@ -7,11 +7,7 @@ export default (props) => (
             <h4>Proposta de Crédito</h4>
         </Row>
         <Row>
-            <Col>
-                {props.children}
-            </Col>
-            <Col>
-            </Col>
+            {props.children}
         </Row>
     </Container>
 )

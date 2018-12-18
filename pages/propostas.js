@@ -1,31 +1,45 @@
-import Layout from '../componets/Layout';
+import Layout from '../components/Layout';
 import List from '../components/List';
 import Details from '../components/Details';
 
 const listItens = [{
-    nome: 'Guilherme',
-    cpf: '081011411',
-    idade:10,
-    sexo:'M',
-    estadoCivil:'Solteiro',
-    estado:"SC",
-    dependentes:10,
-    renda:1500
+    id:142934859564,
+    createdAt: 1,
+    approvedAt: null,
+    status: 'PENDING',
+    customer: {
+        fullName: 'Guilherme Pereira',
+        socialId: '89987656789',
+        age: 25,
+        gener:'M',
+        estadoCivil:'Solteiro',
+        state:'SC',
+        dependents: 2,
+        salary: 5000.00,
+    }
 },
 {
-    nome: "Bruno",
-    cpf: '00936788765' ,
-    idade:10,
-    sexo:'M',
-    estadoCivil:'Solteiro',
-    estado:"SC",
-    dependentes:10,
-    renda:1500 
+    id:145642452345,
+    createdAt: 1,
+    approvedAt: null,
+    status: 'APPROVED',
+    customer: {
+        fullName: 'Bruno da Silva',
+        socialId: '00912343200',
+        age: 30,
+        gener:'M',
+        estadoCivil:'Casado',
+        state:'SC',
+        dependents: 1,
+        salary: 10000.00,
+    }
 }]
 
-export default ()=>(
- <Layout>  
-     <List data={listItens}/>
-     <Details/>
-</Layout> 
+const PropostaPage = () => (
+    <Layout>  
+        <List data={listItens}/>
+        <Details data={listItens[0]}/>
+    </Layout> 
 )
+
+export default PropostaPage
