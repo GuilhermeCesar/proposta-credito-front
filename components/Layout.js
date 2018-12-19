@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button,Jumbotron,Row,Container,Col } from 'reactstrap';
+import {Row,Container,Col } from 'reactstrap';
 
 export default (props) => (
     <Container>
@@ -7,7 +7,14 @@ export default (props) => (
             <h4>Proposta de Crédito</h4>
         </Row>
         <Row>
-            {props.children}
+            <Col>
+                {props.children[0]}
+            </Col>
+
+            <Col>
+                {props.children[1]}
+            </Col>
+            
         </Row>
     </Container>
 )
