@@ -40,9 +40,8 @@ import ProposalService from '../services/ProposalService'
 
 class PropostaPage extends React.Component{
 
-
     componentDidMount() {
-        console.log(this._proposalService);
+        this._propostas = this._proposalService.getAllProposals();
     }
 
     constructor(props){
@@ -52,7 +51,7 @@ class PropostaPage extends React.Component{
 
     render(){
         return (<Layout>
-            <List data={[]}/>
+            <List data={this._propostas }/>
             <Details data={{nome:'Joao'}}/>
         </Layout> )
     }

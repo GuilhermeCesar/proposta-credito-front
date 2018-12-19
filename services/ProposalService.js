@@ -1,9 +1,12 @@
-import  connection  from "./HttpConnectionFactory";
+import HttpService from './HttpService';
 
 class ProposalService{
-    async static getAllProposals(){
-        let request = connection.get("proposal/");
-        console.log(request);
+    constructor() {
+        this._httpService = new HttpService();
+    }
+
+    async getAllProposals(){
+        return this._httpService.get("/proposals")
     }
 }
 
