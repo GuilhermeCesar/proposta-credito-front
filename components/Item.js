@@ -42,12 +42,11 @@ const Item = (props) => {
             `}</style>
         </div>
     )
-} 
-   
+};
 
 Item.propTypes = {
     data: PropTypes.object.isRequired
-}
+};
 
 export default Item
 

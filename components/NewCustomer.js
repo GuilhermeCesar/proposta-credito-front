@@ -1,6 +1,6 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
-import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
+import {Button, Col, Input, Modal, ModalBody, ModalFooter, ModalHeader, Row} from 'reactstrap';
 
 class NewCustomer extends React.Component {
     constructor(props) {
@@ -23,9 +23,43 @@ class NewCustomer extends React.Component {
             <div>
                 <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>Cadastro de Clientes</ModalHeader>
                     <ModalBody>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <Row>
+                            <Col md={12}>
+                                <Input type="text" placeholder="Nome"/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={12}>
+                                <Input type="text" placeholder="CPF"/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={12}>
+                                <Input type="number" placeholder="Idade"/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={12}>
+                                <Input type="text" placeholder="Sexo"/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={12}>
+                                <Input type="text" placeholder="Estado Civil"/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={12}>
+                                <Input type="text" placehouder="UF"/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={12}>
+                                <Input type="number" placehouder="Dependentes"/>
+                            </Col>
+                        </Row>
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
