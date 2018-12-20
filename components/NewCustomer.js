@@ -1,6 +1,6 @@
-/* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
 import {Button, Col, Input, Modal, ModalBody, ModalFooter, ModalHeader, Row} from 'reactstrap';
+import '../css/newCustumer.css';
 
 class NewCustomer extends React.Component {
     constructor(props) {
@@ -25,7 +25,7 @@ class NewCustomer extends React.Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>Cadastro de Clientes</ModalHeader>
                     <ModalBody>
-                        <Row>
+                        <Row className="row">
                             <Col md={12}>
                                 <Input type="text" placeholder="Nome"/>
                             </Col>
@@ -36,8 +36,12 @@ class NewCustomer extends React.Component {
                             </Col>
                         </Row>
                         <Row>
-                            <Col md={12}>
+                            <Col md={6}>
                                 <Input type="number" placeholder="Idade"/>
+                            </Col>
+
+                            <Col md={6}>
+                                <Input type="number" placeholder="Dependentes"/>
                             </Col>
                         </Row>
                         <Row>
@@ -52,12 +56,7 @@ class NewCustomer extends React.Component {
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <Input type="text" placehouder="UF"/>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={12}>
-                                <Input type="number" placehouder="Dependentes"/>
+                                <Input type="text" placeholder="UF"/>
                             </Col>
                         </Row>
                     </ModalBody>
