@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import {Row} from 'reactstrap';
+import {Card, CardBody, CardSubtitle, CardTitle} from 'reactstrap';
 import {HelperProposal} from '../services/ProposalService'
+import '../css/detail.css';
 
 const Details = (props) => {
     const proposta = props.data;
@@ -10,20 +11,22 @@ const Details = (props) => {
         <div>
             { props.data
             ?
-                <div>
-                    <Row>
-                        Nome: {customer.fullName}
-                    </Row>
-                    <Row>
-                    Estado da proposta: {HelperProposal(proposta.status)}
-                    </Row>
-                </div>
-            :
-                <h4>Clique em um item para visualizar</h4>
+            <div>
+                <Card>
+                    <CardBody>
+                        <CardTitle>{customer.fullName}</CardTitle>
+                        <CardSubtitle>{HelperProposal(proposta.status)}</CardSubtitle>
+                    </CardBody>
+                </Card>
+            </div>
+                :
+            <h4>Clique em um item para visualizar</h4>
             }
         </div>
     )
 };
+
+
 
 
 
