@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import vars from '../proposta-credito.config';
 import Link from "next/link";
+import {HelperProposal} from '../services/ProposalService'
+
 
 const Item = (props) => {
     const { data } = props;
@@ -12,7 +14,7 @@ const Item = (props) => {
             </Link>
             <div className="details">
                 <div>{customer.socialId}</div>
-                <div className="status">{data.status}</div>
+                <div className="status">{HelperProposal(data.status)}</div>
             </div>
             <style jsx>{`
                 .box {
