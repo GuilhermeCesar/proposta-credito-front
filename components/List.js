@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 const List = (props)=>(
     <div>
-        {props.data.map(proposta => (       
-            <Item key={proposta.id} data={proposta}/>
+        {props.data.map(proposta => (
+            <Item key={proposta.id} data={proposta} />
         ))}
     </div>
 )

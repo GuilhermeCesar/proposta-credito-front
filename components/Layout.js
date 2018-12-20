@@ -1,20 +1,29 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Row,Container,Col } from 'reactstrap';
 
-export default (props) => (
+import {Col, Container, Row} from 'reactstrap';
+import PropTypes from 'prop-types';
+
+import NewCustomer from './NewCustomer';
+
+
+const Layout = (props) => (
     <Container>
         <Row>
-            <h4>Proposta de Crédito</h4>
+            <Col md={6}>
+                <h4>Proposta de Crédito</h4>
+            </Col>
+            <Col md={6}>
+                <NewCustomer buttonLabel="Criar Usuário"/>
+            </Col>
         </Row>
         <Row>
-            <Col>
-                {props.children[0]}
-            </Col>
-
-            <Col>
-                {props.children[1]}
-            </Col>
-            
+            {props.children}
         </Row>
     </Container>
-)
+);
+
+Layout.propTypes = {
+    children: PropTypes.any.isRequired,
+};
+
+export default Layout

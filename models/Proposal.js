@@ -1,12 +1,13 @@
 import Status from './Status'
+
 class Proposal{
-    constructor(){
+    constructor(customer){
         this._id;
-        this._createAt = new Date();
-        this._aprovedAt;
+        this._createdAt = new Date();
+        this._approvedAt;
         this._status = Status.ANALYZING;
-
-
+        this._customer = customer;
+        Object.freeze(this)
     }
 }
 
