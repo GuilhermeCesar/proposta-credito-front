@@ -8,11 +8,18 @@ import NewCustomer from './NewCustomer';
 
 const Layout = (props) => (
     <Container>
-        <Row>
-            <Col md={6}>
+        <style>
+        {`
+            .header{
+                padding: 30px;
+            }
+        `}
+        </style>
+        <Row className="header">
+            <Col md={8}>
                 <h4>Proposta de Crédito</h4>
             </Col>
-            <Col md={6}>
+            <Col md={2}>
                 <NewCustomer buttonLabel="Criar Usuário"/>
             </Col>
         </Row>
