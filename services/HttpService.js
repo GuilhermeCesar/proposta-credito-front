@@ -22,7 +22,7 @@ class HttpService {
 
     }
 
-    async post(path="", headers = {'Content-Type': 'application/json'},body={}){
+    async post(path="",body={},headers = {'Content-Type': 'application/json'}){
         return fetch(propostaConfig.baseURL+path,{
             method: 'POST',
             headers: headers,

@@ -14,6 +14,15 @@ class ProposalService{
             throw new Error("Erro ao consultar as propostas")
         }
     }
+
+    async saveCostumer(){
+        try{
+            const costumer = await this._httpService.post("/proposals");
+            const json = await costumer.json();
+        }catch (e) {
+            throw new Error("Erro cadatras cliente");
+        }
+    }
 }
 
 export const HelperProposal = (status = "ANALYZING") => {
