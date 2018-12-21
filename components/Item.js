@@ -6,14 +6,13 @@ import {HelperProposal} from '../services/ProposalService'
 
 const Item = (props) => {
     const { data } = props;
-    const { customer } = data;
     return (
         <div className="box">
             <Link href={`/proposals?id=${data.id}`}>
-                <div className="title">{customer.fullName}</div>
+                <div className="title">{data.customer.fullName}</div>
             </Link>
             <div className="details">
-                <div>{customer.socialId}</div>
+                <div>{data.customer.socialId}</div>
                 <div className="status">{HelperProposal(data.status)}</div>
             </div>
             <style jsx>{`

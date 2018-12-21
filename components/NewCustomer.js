@@ -5,6 +5,10 @@ import '../css/newCustumer.css';
 class NewCustomer extends React.Component {
     constructor(props) {
         super(props);
+
+        this._custumer = {
+            name:""
+        };
         this.state = {
             modal: false
         };
@@ -16,6 +20,10 @@ class NewCustomer extends React.Component {
         this.setState({
             modal: !this.state.modal
         });
+    }
+
+    alteraBotao(evento){
+        console.log(evento)
     }
 
     render() {
@@ -69,5 +77,7 @@ class NewCustomer extends React.Component {
         );
     }
 }
+
+
 
 export default NewCustomer;

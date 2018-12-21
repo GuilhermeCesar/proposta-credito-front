@@ -5,7 +5,6 @@ import '../css/detail.css';
 
 const Details = (props) => {
     const proposta = props.data;
-    const {customer} = proposta;
 
     return (
         <div>
@@ -14,7 +13,7 @@ const Details = (props) => {
             <div>
                 <Card>
                     <CardBody>
-                        <CardTitle>{customer.fullName}</CardTitle>
+                        <CardTitle>{proposta.customer.fullName}</CardTitle>
                         <CardSubtitle>{HelperProposal(proposta.status)}</CardSubtitle>
                     </CardBody>
                 </Card>
