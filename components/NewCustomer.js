@@ -24,6 +24,7 @@ class NewCustomer extends React.Component {
 
     changeEventInput(evento){
         this._custumer[evento.target.name] = evento.target.value;
+        console.log(this._custumer)
     }
 
     render() {
@@ -38,17 +39,16 @@ class NewCustomer extends React.Component {
                                 <Input type="text" name="fullName" placeholder="Nome" onChange={event=>this.changeEventInput(event)}/>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="row">
                             <Col md={12}>
                                 <Input type="text" name="socialId" placeholder="CPF" onChange={event=>this.changeEventInput(event)}/>
                             </Col>
                         </Row>
-                        <Row>
-                            <Col md={6}>
+                        <Row className="row">
+                            <Col md={6} lg={6} xl={6}>
                                 <Input type="number" name="age" placeholder="Idade" onChange={event=>this.changeEventInput(event)}/>
                             </Col>
-
-                            <Col md={6}>
+                            <Col md={6} lg={6}  xl={6}>
                                 <Input type="number" name="dependents" placeholder="Dependentes"/>
                             </Col>
                         </Row>
@@ -69,7 +69,7 @@ class NewCustomer extends React.Component {
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <Input type="text" placeholder="UF"/>
+                                <Input type="text" name="state" placeholder="UF"/>
                             </Col>
                         </Row>
                     </ModalBody>
