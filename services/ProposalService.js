@@ -8,19 +8,18 @@ class ProposalService{
     async getAllProposals(){
         try{
             const proposta =  await this._httpService.get("/proposals");
-            const json = await proposta.json();
-            return  json;
+            return await proposta.json();
         }catch (e) {
             throw new Error("Erro ao consultar as propostas")
         }
     }
 
-    async saveCostumer(){
+    async saveCostumer(costumer){
         try{
-            const costumer = await this._httpService.post("/proposals");
-            const json = await costumer.json();
+            await this._httpService.post("/proposals",costumer);
+            return "Cliente cadastrado com sucesso"
         }catch (e) {
-            throw new Error("Erro cadatras cliente");
+            throw "Erro ao cadastrar cliente";
         }
     }
 }

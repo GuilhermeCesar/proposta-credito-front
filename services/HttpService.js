@@ -18,17 +18,24 @@ class HttpService {
         .catch(error=>{
             throw new Error(error)
         })
-
-
     }
 
-    async post(path="",body={},headers = {'Content-Type': 'application/json'}){
+    async post(path="",body={},headers = {'Content-Type': 'application/json;charset=UTF-8'}){
         return fetch(propostaConfig.baseURL+path,{
             method: 'POST',
             headers: headers,
             body: JSON.stringify(body)
         })
+        .then(result => {
+            switch (result.status) {
+                case 500:
+                    throw new Error();
+            }
+            return result;
+        })
+        .catch(() => {
+            throw new Error("Erro ao salvar Cliente");
+        })
     }
 }
 export default HttpService;
-

@@ -1,19 +1,21 @@
 import React from 'react';
 import {Button, Col, Input, Modal, ModalBody, ModalFooter, ModalHeader, Row} from 'reactstrap';
+import PropostaService from '../services/ProposalService.js'
+
 import '../css/newCustumer.css';
 
 class NewCustomer extends React.Component {
     constructor(props) {
         super(props);
 
-        this._custumer = {
-            name:""
-        };
+        this._custumer = {};
         this.state = {
             modal: false
         };
 
         this.toggle = this.toggle.bind(this);
+        this._saveCustomer = this._saveCustomer.bind(this);
+        this._propostaService = new PropostaService();
     }
 
     toggle() {
@@ -22,9 +24,18 @@ class NewCustomer extends React.Component {
         });
     }
 
-    changeEventInput(evento){
+    _saveCustomer(){
+        try{
+            console.log(this._custumer);
+            this._propostaService.saveCostumer(this._custumer);
+        }catch (e) {
+            console.error(e);
+        }
+        this.toggle();
+    }
+
+    _changeEventInput(evento){
         this._custumer[evento.target.name] = evento.target.value;
-        console.log(this._custumer)
     }
 
     render() {
@@ -36,17 +47,17 @@ class NewCustomer extends React.Component {
                     <ModalBody>
                         <Row className="row">
                             <Col md={12}>
-                                <Input type="text" name="fullName" placeholder="Nome" onChange={event=>this.changeEventInput(event)}/>
+                                <Input type="text" required name="fullName" placeholder="Nome" onChange={event=>this._changeEventInput(event)}/>
                             </Col>
                         </Row>
                         <Row className="row">
                             <Col md={12}>
-                                <Input type="text" name="socialId" placeholder="CPF" onChange={event=>this.changeEventInput(event)}/>
+                                <Input type="text" required name="socialId" placeholder="CPF" onChange={event=>this._changeEventInput(event)}/>
                             </Col>
                         </Row>
                         <Row className="row">
                             <Col md={6} lg={6} xl={6}>
-                                <Input type="number" name="age" placeholder="Idade" onChange={event=>this.changeEventInput(event)}/>
+                                <Input type="number" name="age" placeholder="Idade" onChange={event=>this._changeEventInput(event)}/>
                             </Col>
                             <Col md={6} lg={6}  xl={6}>
                                 <Input type="number" name="dependents" placeholder="Dependentes"/>
@@ -74,7 +85,7 @@ class NewCustomer extends React.Component {
                         </Row>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.toggle}>Salvar</Button>{' '}
+                        <Button color="primary" onClick={this._saveCustomer}>Salvar</Button>{' '}
                         <Button color="secondary" onClick={this.toggle}>Cancelar</Button>
                     </ModalFooter>
                 </Modal>
@@ -82,7 +93,5 @@ class NewCustomer extends React.Component {
         );
     }
 }
-
-
 
 export default NewCustomer;
