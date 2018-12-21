@@ -22,8 +22,8 @@ class NewCustomer extends React.Component {
         });
     }
 
-    alteraBotao(evento){
-        console.log(evento)
+    changeEventInput(evento){
+        this._custumer[evento.target.name] = evento.target.value;
     }
 
     render() {
@@ -35,31 +35,36 @@ class NewCustomer extends React.Component {
                     <ModalBody>
                         <Row className="row">
                             <Col md={12}>
-                                <Input type="text" placeholder="Nome"/>
+                                <Input type="text" name="fullName" placeholder="Nome" onChange={event=>this.changeEventInput(event)}/>
                             </Col>
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <Input type="text" placeholder="CPF"/>
+                                <Input type="text" name="socialId" placeholder="CPF" onChange={event=>this.changeEventInput(event)}/>
                             </Col>
                         </Row>
                         <Row>
                             <Col md={6}>
-                                <Input type="number" placeholder="Idade"/>
+                                <Input type="number" name="age" placeholder="Idade" onChange={event=>this.changeEventInput(event)}/>
                             </Col>
 
                             <Col md={6}>
-                                <Input type="number" placeholder="Dependentes"/>
+                                <Input type="number" name="dependents" placeholder="Dependentes"/>
                             </Col>
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <Input type="text" placeholder="Sexo"/>
+                                <Input type="text"  name="gener" placeholder="Sexo"/>
                             </Col>
                         </Row>
                         <Row>
                             <Col md={12}>
-                                <Input type="text" placeholder="Estado Civil"/>
+                                <Input type="select" name="" placeholder="Estado Civil">
+                                    <option>Solteiro(a)</option>
+                                    <option>Casado(a)</option>
+                                    <option>Divorciado(a)</option>
+                                    <option>Viuvo(a)</option>
+                                </Input>
                             </Col>
                         </Row>
                         <Row>

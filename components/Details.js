@@ -25,10 +25,6 @@ const Details = (props) => {
     )
 };
 
-
-
-
-
 Details.propTypes = {
     data: PropTypes.object,
 };
