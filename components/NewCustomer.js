@@ -26,7 +26,6 @@ class NewCustomer extends React.Component {
 
     _saveCustomer(){
         try{
-            console.log(this._custumer);
             this._propostaService.saveCostumer(this._custumer);
         }catch (e) {
             console.error(e);
