@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {Card, CardBody, CardSubtitle, CardTitle} from 'reactstrap';
+import {Card, CardBody, CardSubtitle, CardTitle,CardText} from 'reactstrap';
 import {HelperProposal} from '../services/ProposalService'
 import '../css/detail.css';
 
@@ -15,6 +15,9 @@ const Details = (props) => {
                     <CardBody>
                         <CardTitle>{proposta.customer.fullName}</CardTitle>
                         <CardSubtitle>{HelperProposal(proposta.status)}</CardSubtitle>
+                        {proposta.disapprovedAt?
+                            <CardText>{proposta.reasonDisaproved}</CardText>:""
+                        }
                     </CardBody>
                 </Card>
             </div>

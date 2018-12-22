@@ -28,10 +28,8 @@ export const HelperProposal = (status = "ANALYZING") => {
     switch (status) {
         case "APPROVED":
             return "Aprovado";
-        case "DISAPPROVED":
-            return "Reprovado";
         default:
-            return "Em Analise"
+            return "Reprovado"
     }
 };
 
