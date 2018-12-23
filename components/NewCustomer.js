@@ -11,8 +11,9 @@ import {
     ModalHeader,
     Row
 } from 'reactstrap';
-import PropostaService from '../services/ProposalService.js'
 import CurrencyInput from 'react-currency-input';
+import Router from 'next/router'
+import PropostaService from '../services/ProposalService.js'
 
 import '../css/newCustumer.css';
 
@@ -70,12 +71,13 @@ class NewCustomer extends React.Component {
         return flagEmptyData;
     }
 
-    _saveCustomer(){
+    async  _saveCustomer(){
         try{
             const emptyData =  this._validForm();
             if(!emptyData){
-                this._propostaService.saveCostumer(this._customer);
+                const proposal = await this._propostaService.saveCostumer(this._customer);
                 this.toggle();
+                Router.push(`/proposals?id=${proposal.id}`)
             }
         }catch (e) {
             console.error(e);

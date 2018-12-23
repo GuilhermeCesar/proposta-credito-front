@@ -16,8 +16,8 @@ class ProposalService{
 
     async saveCostumer(costumer){
         try{
-            await this._httpService.post("/proposals",costumer);
-            return "Cliente cadastrado com sucesso"
+            const proposal = await this._httpService.post("/proposals",costumer);
+            return  await proposal.json();
         }catch (e) {
             throw "Erro ao cadastrar cliente";
         }
