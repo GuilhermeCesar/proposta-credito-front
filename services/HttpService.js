@@ -7,15 +7,9 @@ class HttpService {
             method: 'GET',
             headers: headers,
         })
-        .then(result=>{
-             switch(result.status) {
-                 case 404:
-                     throw new Error("Página não encontrada")
-            }
-
-            return result;
-        })
         .catch(error=>{
+            console.log(error);
+            console.error("Entrou no catch");
             throw new Error(error)
         })
     }

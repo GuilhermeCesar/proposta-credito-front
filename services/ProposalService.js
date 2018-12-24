@@ -5,12 +5,15 @@ class ProposalService{
         this._httpService = new HttpService();
     }
 
-    async getAllProposals(){
+    async getProposals(socialId){
+        const path = `/proposals/${socialId}`;
         try{
-            const proposta =  await this._httpService.get("/proposals");
-            return await proposta.json();
+            const proposta =  await this._httpService.get(path);
+            let propostaJson = await  proposta.json()
+                                            .catch(()=>propostaJson = []);
+            return  propostaJson;
         }catch (e) {
-            throw new Error("Erro ao consultar as propostas")
+            throw new Error(e.message);
         }
     }
 

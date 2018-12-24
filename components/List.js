@@ -7,7 +7,7 @@ const List = (props)=>(
             <Item key={proposta.id} data={proposta} />
         ))}
     </div>
-)
+);
 
 List.propTypes = {
     data: PropTypes.array.isRequired
